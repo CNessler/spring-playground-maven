@@ -17,11 +17,15 @@ import java.util.Map;
 @RestController
 public class PagesController {
 
+    @GetMapping("/math/pi")
+    public String piCalculated() {
+        return "3.14159";
+    }
+
     @GetMapping("/math/calculate")
     public String mathStuff(@RequestParam(value="operation", defaultValue="add") String operation,
                          @RequestParam("x") String firstNumber,
-                         @RequestParam("y") String secondNumber
-    ) {
+                         @RequestParam("y") String secondNumber) {
         MathService mc = new MathService();
         mc.setOperation(operation);
         mc.setFirstNumber(Integer.parseInt(firstNumber));
