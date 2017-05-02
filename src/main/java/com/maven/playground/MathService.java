@@ -49,6 +49,11 @@ public class MathService {
         return returnValue;
     }
 
+    protected String getVolume(int length, int width, int height) {
+        int total = length * width * height;
+        return "The volume of a "+ length + "x" + width + "x" + height + " rectangle is " + String.valueOf(total);
+    }
+
     protected String getSum(String[] queryString) {
         String sumOutput = "";
         int totalValue=0;

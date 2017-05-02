@@ -1,10 +1,7 @@
 package com.maven.playground;
 
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.WebRequest;
 
 import java.util.HashMap;
@@ -20,6 +17,14 @@ public class PagesController {
     @GetMapping("/math/pi")
     public String piCalculated() {
         return "3.14159";
+    }
+
+    @RequestMapping("/math/volume/{length}/{width}/{height}")
+    public String volumeCaclulator(@PathVariable int length,
+                                   @PathVariable int width,
+                                   @PathVariable int height) {
+        MathService mc = new MathService();
+        return mc.getVolume(length, width, height);
     }
 
     @GetMapping("/math/calculate")
